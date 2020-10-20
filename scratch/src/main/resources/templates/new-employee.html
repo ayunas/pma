@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>New Employee Form</title>
+</head>
+<body>
+
+    <form action="/employees/save" method="post" th:object="${emp}">
+        <input type="text" placeholder="First Name" th:field="${emp.firstName}"/>
+        <input type="text" placeholder="Last Name" th:field="${emp.lastName} "/>
+        <input type="text" placeholder="Email" th:field="${emp.email}"/>
+        <button type="submit">Persist Employee</button>
+    </form>
+
+</body>
+</html>
