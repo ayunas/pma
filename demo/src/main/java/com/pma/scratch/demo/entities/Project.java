@@ -17,6 +17,14 @@ public class Project {
 	@OneToMany(mappedBy = "project")
 	private List<Employee> employeeList;
 
+	@ManyToMany(cascade={CascadeType.PERSIST,CascadeType.REFRESH}, fetch = FetchType.LAZY)
+	@JoinTable(
+			name="project_stakeholder",
+			joinColumns = @JoinColumn(name="project_id"),
+			inverseJoinColumns = @JoinColumn(name="stakeholder_id")
+	)
+	private List<Stakeholder> stakeholderList;
+
 	public List<Employee> getEmployeeList() {
 		return employeeList;
 	}
