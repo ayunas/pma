@@ -15,7 +15,7 @@ public class Project {
 	private String description;
 
 	@OneToMany(mappedBy = "project")
-	List<Employee> employeeList;
+	private List<Employee> employeeList;
 
 	public List<Employee> getEmployeeList() {
 		return employeeList;

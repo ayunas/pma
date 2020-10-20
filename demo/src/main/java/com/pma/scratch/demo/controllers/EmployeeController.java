@@ -33,7 +33,7 @@ public class EmployeeController {
 	}
 
 	@PostMapping("/save")
-	public String persistEmploye(Model model, Employee employee) {
+	public String persistEmploye(Employee employee) {
 		empRepo.save(employee);
 		return "redirect:/employees";
 	}

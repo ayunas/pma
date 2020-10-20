@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
+<head th:replace="layouts :: bootstrap">
     <title>New Project</title>
 </head>
 <body>
@@ -23,6 +22,7 @@
                     th:text="${emp.firstName}"
                     th:value="${emp.id}"
             />
+<!--            id is the actual field name in java.  @JoinColumn(name= "sql_table_name") -->
         </select>
 
         <button type="submit">Create Project</button>

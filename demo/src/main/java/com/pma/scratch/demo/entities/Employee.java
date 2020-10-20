@@ -12,8 +12,8 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 
-	@ManyToOne
-	@JoinColumn(name="id")
+	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH}, fetch = FetchType.LAZY)
+	@JoinColumn(name="project_id")
 	private Project project;
 
 	public Employee() {}
@@ -21,6 +21,14 @@ public class Employee {
 	public Employee(String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
 	}
 
 	public String getFirstName() {

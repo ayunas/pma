@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,20 +37,35 @@ public class ProjectController {
 	@GetMapping("/new")
 	public String showProjectForm(Model model) {
 		Project project = new Project();
+		List<Employee> employees = empRepo.findAll();
 		model.addAttribute("proj",project);
+		model.addAttribute("empList",employees);
 		return "new-project";
 	}
 
 	@PostMapping("/save")
 	public String persistProject(Model model, Project proj) {
-		Employee emp1 = new Employee("amir","yunas");
-		List<Employee> employees = new ArrayList<>();
-		employees.add(emp1);
-		proj.setEmployeeList(employees);
+//		Employee emp1 = new Employee("amir","yunas");
+//		List<Employee> employees = new ArrayList<>();
+//		employees.add(emp1);
+//		empRepo.save(emp1);
+//		proj.setEmployeeList(employees);
 		projRepo.save(proj);
+
+		System.out.println(proj.getEmployeeList().toString());
+//
+		for(Employee e : proj.getEmployeeList()) {
+			e.setProject(proj);
+			empRepo.save(e);
+		}
 
 		return "redirect:/projects";
 	}
+
+//	@PostMapping("/save")
+//	public String jrpPersist(Model model, @RequestParam List<Long> employees, Project project) {
+//
+//	}
 
 
 }
