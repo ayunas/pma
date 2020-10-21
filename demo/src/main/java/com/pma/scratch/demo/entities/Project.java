@@ -25,6 +25,14 @@ public class Project {
 	)
 	private List<Stakeholder> stakeholderList;
 
+	public List<Stakeholder> getStakeholderList() {
+		return stakeholderList;
+	}
+
+	public void setStakeholderList(List<Stakeholder> stakeholderList) {
+		this.stakeholderList = stakeholderList;
+	}
+
 	public List<Employee> getEmployeeList() {
 		return employeeList;
 	}

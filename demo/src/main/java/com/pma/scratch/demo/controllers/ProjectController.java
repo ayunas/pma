@@ -2,8 +2,10 @@ package com.pma.scratch.demo.controllers;
 
 import com.pma.scratch.demo.entities.Employee;
 import com.pma.scratch.demo.entities.Project;
+import com.pma.scratch.demo.entities.Stakeholder;
 import com.pma.scratch.demo.repos.iEmpRepo;
 import com.pma.scratch.demo.repos.iProjectRepo;
+import com.pma.scratch.demo.repos.iStakeHolderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,9 @@ public class ProjectController {
 	@Autowired
 	iEmpRepo empRepo;
 
+	@Autowired
+	iStakeHolderRepo stakeHolderRepo;
+
 	@GetMapping
 	public String showProjects(Model model) {
 		System.out.println("hit the /projects endpoint");
@@ -35,10 +40,14 @@ public class ProjectController {
 
 	@GetMapping("/new")
 	public String showProjectForm(Model model) {
-		Project project = new Project();
+		model.addAttribute("proj",new Project());
+
 		List<Employee> employees = empRepo.findAll();
-		model.addAttribute("proj",project);
 		model.addAttribute("empList",employees);
+
+		List<Stakeholder> stakeholders = stakeHolderRepo.findAll();
+		model.addAttribute("stakeList",stakeholders);
+
 		return "new-project";
 	}
 
