@@ -28,6 +28,7 @@ public class StakeholderController {
 	@GetMapping("/new")
 	public String addStakeholder(Model model) {
 		System.out.println("made it to /stakeholders/new");
+
 		model.addAttribute("stakeholder",new Stakeholder());
 		return "new-stakeholder";
 	}

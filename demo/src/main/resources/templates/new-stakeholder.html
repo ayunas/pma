@@ -6,9 +6,9 @@
 <body>
     <nav th:replace="layouts :: navvy"/>
     <form action="/stakeholders/save" method="post" th:object="${stakeholder}">
-        <input type=text placeholder="First Name" th:field="$[stakeholder.firstName}"/>
-        <input type=text placeholder="Last Name" th:field="${stakeholder.lastName}"/>
-        <input type=text placeholder="Role" th:field="${stakeholder.role}"/>
+        <input type=text placeholder="First Name" th:field="${stakeholder.firstName}">
+        <input type=text placeholder="Last Name" th:field="${stakeholder.lastName}">
+        <input type=text placeholder="Role" th:field="${stakeholder.role}">
         <button type="submit">Add Stakeholder</button>
     </form>
 </body>
