@@ -9,10 +9,8 @@ import com.pma.scratch.demo.repos.iStakeHolderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
@@ -53,11 +51,6 @@ public class ProjectController {
 
 	@PostMapping("/save")
 	public String persistProject(Model model, Project proj) {
-//		Employee emp1 = new Employee("amir","yunas");
-//		List<Employee> employees = new ArrayList<>();
-//		employees.add(emp1);
-//		empRepo.save(emp1);
-//		proj.setEmployeeList(employees);
 		projRepo.save(proj);
 
 		System.out.println(proj.getEmployeeList().toString());
@@ -68,12 +61,23 @@ public class ProjectController {
 		}
 
 		return "redirect:/projects";
+		//		Employee emp1 = new Employee("amir","yunas");
+//		List<Employee> employees = new ArrayList<>();
+//		employees.add(emp1);
+//		empRepo.save(emp1);
+//		proj.setEmployeeList(employees);
 	}
 
-//	@PostMapping("/save")
-//	public String jrpPersist(Model model, @RequestParam List<Long> employees, Project project) {
-//
-//	}
+	@GetMapping("/test/{id}")
+	public String showTestId(@PathVariable String id, Model model) {
+		System.out.println("the id URL path variable is : " + id);
+		return "redirect:/projects";
+	}
 
+	@GetMapping("/req")
+	public String showReqParam(@RequestParam String data) {
+		System.out.println("the request param data variable is : " + data);
+		return "redirect:/projects";
+	}
 
 }

@@ -1,6 +1,8 @@
 package com.pma.scratch.demo.controllers;
 
+import com.pma.scratch.demo.entities.Project;
 import com.pma.scratch.demo.entities.Stakeholder;
+import com.pma.scratch.demo.repos.iProjectRepo;
 import com.pma.scratch.demo.repos.iStakeHolderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +20,9 @@ public class StakeholderController {
 	@Autowired
 	iStakeHolderRepo stakeRepo;
 
+	@Autowired
+	iProjectRepo projRepo;
+
 	@GetMapping
 	public String showStakeholders(Model model) {
 		List<Stakeholder> stakeholders = stakeRepo.findAll();
@@ -28,8 +33,10 @@ public class StakeholderController {
 	@GetMapping("/new")
 	public String addStakeholder(Model model) {
 		System.out.println("made it to /stakeholders/new");
-
 		model.addAttribute("stakeholder",new Stakeholder());
+
+		List<Project> projects = projRepo.findAll();
+		model.addAttribute("projects",projects);
 		return "new-stakeholder";
 	}
 
