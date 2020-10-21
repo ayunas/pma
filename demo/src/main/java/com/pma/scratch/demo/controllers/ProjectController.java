@@ -74,7 +74,7 @@ public class ProjectController {
 		return "redirect:/projects";
 	}
 
-	@GetMapping("/req")
+	@GetMapping("/test/req")
 	public String showReqParam(@RequestParam String data) {
 		System.out.println("the request param data variable is : " + data);
 		return "redirect:/projects";
