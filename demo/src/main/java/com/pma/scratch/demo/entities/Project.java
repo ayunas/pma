@@ -25,6 +25,10 @@ public class Project {
 	)
 	private List<Stakeholder> stakeholderList;
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public List<Stakeholder> getStakeholderList() {
 		return stakeholderList;
 	}

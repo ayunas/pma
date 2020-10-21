@@ -12,7 +12,7 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 
-	@ManyToOne(cascade = {CascadeType.PERSIST,CascadeType.REFRESH}, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="project_id")
 	private Project project;
 
