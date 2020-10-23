@@ -1,5 +1,7 @@
 package com.pma.scratch.demo.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pma.scratch.demo.dto.ProjectStages;
 import com.pma.scratch.demo.dto.ProjectStakes;
 import com.pma.scratch.demo.entities.Employee;
@@ -25,13 +27,16 @@ public class HomeController {
 	iProjectRepo projectRepo;
 
 	@GetMapping
-	public String showHome(Model model) {
+	public String showHome(Model model) throws JsonProcessingException {
 		List<ProjectStakes> projectStakes = stakeHolderRepo.findStakeholdersOnProjects();
-		System.out.println(projectStakes);
 		List<ProjectStages> projectStages = projectRepo.showProjectStages();
-		System.out.println(projectStages);
 		model.addAttribute("projectStakes",projectStakes);
 		model.addAttribute("projectStages",projectStages);
+
+		ObjectMapper objMapper = new ObjectMapper();
+		String stageJSON = objMapper.writeValueAsString(projectStages);
+		model.addAttribute("stageJSON",stageJSON);
+
 		return "home";
 	}
 
