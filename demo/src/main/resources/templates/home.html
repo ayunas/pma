@@ -7,6 +7,24 @@
 <body>
     <nav th:replace="layouts :: navvy" />
     <h2>Welcome to the Home Page</h2>
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th>Project</th>
+                <th>Stakeholders</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="ps : ${projectStakes}">
+                <td th:text="${ps.projectName}"/>
+                <td th:text="${ps.stakeholders}" />
+            </tr>
+        </tbody>
+
+
+
+    </table>
     <div class="col-md-4">
         <canvas id="pieChart" height="50" width="50"></canvas>
     </div>

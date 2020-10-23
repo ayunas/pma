@@ -8,9 +8,9 @@ new Chart(canvas,{
         labels : ["jan","feb","march"],
         datasets : [
                 {   label : "1st dataset",
-                    backgroundColor : 'rgb(255,99,132)',
+                    backgroundColor : ['rgb(255,99,132)','#8e5ea2','#3cba9f'],
                     borderColor : 'rgb(255,75,120)',
-                    data : [12,23,34,45,12,29]
+                    data : [12,23,34]
                 }
             ]
     }
