@@ -7,27 +7,44 @@
 <body>
     <nav th:replace="layouts :: navvy" />
     <h2>Welcome to the Home Page</h2>
-    <table class="table table-hover table-dark">
+    <div class="table-chart">
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Stakeholders</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="ps : ${projectStakes}">
+                    <td th:text="${ps.projectName}"/>
+                    <td th:text="${ps.stakeholders}" />
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="col-md-4">
+            <canvas id="pieChart" height="50" width="50"></canvas>
+        </div>
+    </div>
+    <table class="table table-hover table-dark stage-table">
         <thead>
             <tr>
-                <th>Project</th>
-                <th>Stakeholders</th>
+                <th>Project Stage</th>
+                <th>Project Count</th>
             </tr>
         </thead>
 
         <tbody>
-            <tr th:each="ps : ${projectStakes}">
-                <td th:text="${ps.projectName}"/>
-                <td th:text="${ps.stakeholders}" />
+            <tr th:each="ps : ${projectStages}">
+                <td th:text="${ps.stage}" />
+                <td th:text="${ps.projectCount}" />
             </tr>
         </tbody>
-
-
-
     </table>
-    <div class="col-md-4">
-        <canvas id="pieChart" height="50" width="50"></canvas>
-    </div>
+
+
 </body>
 
 <!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>-->

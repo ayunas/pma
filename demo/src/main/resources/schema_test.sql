@@ -1,0 +1,16 @@
+-- CREATE TABLE Project(
+--     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--     name VARCHAR(32) NOT NULL,
+--     description VARCHAR(512),
+--     stage VARCHAR(32)
+-- );
+-- -- CREATE TABLE employee(id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, first_name VARCHAR(32), last_name VARCHAR(32),FOREIGN KEY())
+--
+--
+-- CREATE TABLE Employee (
+--     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--     first_name VARCHAR(32) NOT NULL,
+--     last_name VARCHAR(32),
+--     project_id int,
+--     FOREIGN KEY(project_id) REFERENCES Project(id)
+-- );
