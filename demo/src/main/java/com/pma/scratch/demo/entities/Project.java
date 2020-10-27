@@ -12,6 +12,7 @@ public class Project {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;  //why Long?
 
+	@Column(nullable=false, unique=true)
 	private String name;
 	private String stage;
 	private String description;
@@ -20,6 +21,7 @@ public class Project {
 	@OneToMany(mappedBy = "project")
 	private List<Employee> employeeList;
 
+//	@JsonIgnore
 	@ManyToMany(cascade={CascadeType.PERSIST,CascadeType.REFRESH}, fetch = FetchType.LAZY)
 	@JoinTable(
 			name="project_stakeholder",

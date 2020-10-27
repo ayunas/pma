@@ -1,5 +1,7 @@
 package com.pma.scratch.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class Stakeholder {
 	private String lastName;
 	private String role;
 
+	@JsonIgnore
 	@ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.REFRESH})
 	@JoinTable(
 			name="project_stakeholder",
