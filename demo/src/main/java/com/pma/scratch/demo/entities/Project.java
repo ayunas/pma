@@ -1,5 +1,7 @@
 package com.pma.scratch.demo.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,6 +16,7 @@ public class Project {
 	private String stage;
 	private String description;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "project")
 	private List<Employee> employeeList;
 
