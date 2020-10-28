@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -31,6 +32,10 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 		System.out.println("Hello PMA again");
+		Optional<Mountain> mtn = Optional.of(new Mountain());
+		System.out.println(mtn.get());
+		Optional<Mountain> mtn2 = Optional.empty();
+//		System.out.println(mtn2.get());
 	}
 
 //	@Bean

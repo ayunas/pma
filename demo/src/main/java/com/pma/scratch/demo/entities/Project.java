@@ -17,7 +17,7 @@ public class Project {
 	private String stage;
 	private String description;
 
-	@JsonIgnore
+//	@JsonIgnore
 	@OneToMany(mappedBy = "project")
 	private List<Employee> employeeList;
 
