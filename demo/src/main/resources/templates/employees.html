@@ -19,6 +19,7 @@
     <tr th:each="emp : ${empList}">
         <td th:text="${emp.firstName}"/>
         <td th:text="${emp.lastName}"/>
+        <td th:text="${emp.email}" />
     </tr>
 
     <button type="button" class="btn btn-secondary btn-lg"><a href="/employees/new">Add Employee</a></button>

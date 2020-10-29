@@ -4,7 +4,11 @@ import com.pma.scratch.demo.entities.Employee;
 import com.pma.scratch.demo.repos.iEmpRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +23,13 @@ public class EmpController {
 	@GetMapping
 	public List<Employee> showEmployees() {
 		return empRepo.findAll();
+	}
+
+	@GetMapping(params = {"page","size"})
+	public ResponseEntity<Employee> showEmployeePage(@RequestParam int page, @RequestParam int size) {
+		Pageable pageAndSize = PageRequest.of(page,size);
+		Page<Employee> empPage = empRepo.findAll(pageAndSize);
+		return new ResponseEntity(empPage, HttpStatus.OK);
 	}
 
 	@GetMapping("/{id}")

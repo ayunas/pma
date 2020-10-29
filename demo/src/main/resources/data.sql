@@ -6,15 +6,15 @@ insert into project (id, name, stage, description) values (1003, 'Improve Intran
 
 --
 -- -- -- INSERT EMPLOYEES
-insert into employee (id, first_name, last_name, project_id) values (1, 'John', 'Warton', 1001);
-insert into employee (id, first_name, last_name, project_id) values (2, 'Mike', 'Lanister', 1002);
-insert into employee (id, first_name, last_name, project_id) values (3, 'Steve', 'Reeves', 1002);
-insert into employee (id, first_name, last_name, project_id) values (4, 'Ronald', 'Connor', 1000);
-insert into employee (id, first_name, last_name, project_id) values (5, 'Jim', 'Salvator', 1000);
-insert into employee (id, first_name, last_name, project_id) values (6, 'Peter', 'Henley', 1000);
-insert into employee (id, first_name, last_name, project_id) values (7, 'Richard', 'Carson', 1003);
-insert into employee (id, first_name, last_name, project_id) values (8, 'Honor', 'Miles', 1003);
-insert into employee (id, first_name, last_name, project_id) values (9, 'Tony', 'Roggers', 1003);
+insert into employee (id, first_name, last_name, email, project_id) values (1, 'John', 'Warton', 'j@geegee.com',1001);
+insert into employee (id, first_name, last_name, email, project_id) values (2, 'Mike', 'Lanister', 'j@geegee.com',1002);
+insert into employee (id, first_name, last_name, email, project_id) values (3, 'Steve', 'Reeves', 'j@geegee.com',1002);
+insert into employee (id, first_name, last_name, email, project_id) values (4, 'Ronald', 'Connor', 'j@geegee.com',1000);
+insert into employee (id, first_name, last_name, email, project_id) values (5, 'Jim', 'Salvator', 'j@geegee.com',1000);
+insert into employee (id, first_name, last_name, email, project_id) values (6, 'Peter', 'Henley', 'j@geegee.com',1000);
+insert into employee (id, first_name, last_name, email, project_id) values (7, 'Richard', 'Carson', 'j@geegee.com',1003);
+insert into employee (id, first_name, last_name, email, project_id) values (8, 'Honor', 'Miles', 'j@geegee.com',1003);
+insert into employee (id, first_name, last_name, email, project_id) values (9, 'Tony', 'Roggers', 'j@geegee.com',1003);
 -- -- --
 -- --
 -- -- -- -- INSERT PROJECT_EMPLOYEE_RELATION (Removed duplicates from video)

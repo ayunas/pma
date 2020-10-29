@@ -1,6 +1,8 @@
 package com.pma.scratch.demo.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -14,16 +16,22 @@ public class Employee {
 	private String firstName;
 	private String lastName;
 
+
+	@Getter @Setter
+	private String email;
+
 	@JsonIgnore
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name="project_id")
 	private Project project;
 
+
 	public Employee() {}
 
-	public Employee(String firstName, String lastName) {
+	public Employee(String firstName, String lastName, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.email = email;
 	}
 
 	public Project getProject() {
